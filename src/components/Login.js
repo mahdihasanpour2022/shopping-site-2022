@@ -4,15 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 // scss 
 import Styles from "../assets/styles/components_styles/Login.module.scss";
 // action reducer 
-import { SignupForm_AC, LoginForm_AC ,successLogin_AC} from "../redux/login_signup/loginSignupActopnCreator";
+import { SignupForm_AC, LoginForm_AC, successLogin_AC } from "../redux/login_signup/loginSignupActopnCreator";
 // helper function 
 import { validation } from "../helper_function/validation";
 // icons 
 import { VscClose } from "react-icons/vsc";
 // notify 
-import {notify} from "../helper_function/toastify";
+import { notify } from "../helper_function/toastify";
 // localStorage 
-import {user_login_data_save_in_local} from "../localStorage/localStorage";
+import { user_login_data_save_in_local } from "../localStorage/localStorage";
 const Login = () => {
 
   const dispatch = useDispatch();
@@ -36,8 +36,8 @@ const Login = () => {
   }, [loginUserData])
 
 
-
-  const submitLoginForm =e => {
+  // function form for submit login form 
+  const submitLoginForm = e => {
     e.preventDefault();
 
     if (!!Object.keys(loginError).length) {
@@ -46,22 +46,24 @@ const Login = () => {
         password: true,
       })
       notify("failed", "login failed.you have errors");
-    }else{
+    } else {
       notify("success", "you login successfully");
       dispatch(successLogin_AC())
       user_login_data_save_in_local(loginUserData)
       dispatch(LoginForm_AC(false))
     }
   }
-console.log()
+
+
   return (
     <>
+      {/* conditional rendering login form  */}
       <div className={Loginform ? `${Styles.login_container} ${Styles.loginopen}` : Styles.login_container}>
 
         <button onClick={() => dispatch(LoginForm_AC(false))} className={Styles.closeLoginForm}><VscClose /></button>
         <h4>Login</h4>
         <hr />
-
+        {/* start login form  */}
         <form onSubmit={e => submitLoginForm(e)} className={Styles.loginForm}>
           <input name='email' onFocus={e => loginInputTouch(e)} onChange={e => loginInputHandler(e)} className='form-control' type="text" placeholder='email...' />
           <span className={Styles.errorSpan}>{(loginInputTouched.email && loginError.email) && loginError.email}</span>
@@ -71,7 +73,7 @@ console.log()
 
           <button className={Styles.loginformButton} type='submit'>login</button>
         </form>
-
+        {/* button switch to signup form */}
         <button className={Styles.showsignupupFormButton} onClick={() => {
           dispatch(LoginForm_AC(false))
           dispatch(SignupForm_AC(true))

@@ -26,9 +26,12 @@ const Product = ({ productData }) => {
     <>
       <div className='col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-3'>
         <div className="Product_card h-100" onClick={() => setIsShow(true)}>
+          {/* start product image left hand  */}
           <div className="productImage" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="500">
             <img onMouseEnter={() => setIsHover(!isHover)} src={isHover ? image_src2 : image_src1} alt={title} />
           </div>
+
+          {/* start product content right hand  */}
           <div className="productContent">
             <h6>{title}</h6>
             <p><span style={{ color: "lightgray" }}>{id}</span>{detail}</p>
@@ -39,7 +42,7 @@ const Product = ({ productData }) => {
           </div>
         </div>
       </div>
-
+      {/* start Modal  */}
       <Modal show={isShow}>
         <div className="modal-content">
           <div className="content">

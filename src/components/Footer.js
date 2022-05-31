@@ -7,7 +7,6 @@ import { SiTelegram } from "react-icons/si";
 import { SiGithub } from "react-icons/si";
 import { AiFillLinkedin } from "react-icons/ai";
 
-
 const Footer = () => {
   return (
     <>

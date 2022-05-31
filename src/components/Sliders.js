@@ -23,7 +23,7 @@ const Sliders = () => {
       <div className="container-fluid p-0">
         <div className="row m-0 ">
           <div className='slider p-0'>
-
+            {/* start Carousel  */}
             <Carousel
               autoPlay={true}
               infiniteLoop={true}
@@ -36,6 +36,7 @@ const Sliders = () => {
             >
 
               <div>
+              {/* slider1start slider1  */}
                 <img src={slider1} alt="slider1" />
                 <div className='content'>
                   <h5>Exclusive<span> Collection</span></h5>
@@ -44,6 +45,7 @@ const Sliders = () => {
                 </div>
               </div>
               <div>
+              {/* slider1start slider2  */}
                 <img src={slider2} alt="slider2" />
                 {/* <p className="legend d-inline-block">men</p> */}
                 <div className='content'>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
 // action creator cart 
 import { shopCartMenu_AC, increaseProductInCart_AC, decreaseProductInCart_AC, removeProduct_AC, clearCart_AC, checkOut_AC, calculate_AC } from "../redux/cart/cartAcionCreators";
@@ -28,33 +28,14 @@ const ShoppMenu = () => {
   const dispatch = useDispatch()
   const { cart, shoppcartmenu, totalPrice, totalDiscount } = useSelector(state => state.cartState)
 
-
-  useEffect(() => {
-
-  }, [])
-
-
-  // const totalPrice = () => {
-  //   return cart.reduce((total, item) => total + (item.Discounted_price * item.quantity), 0)
-  // }
-  // const totalDiscounted = () => {
-  //   return cart.reduce((total, item) => total + (item.real_price * item.quantity), 0) - totalPrice();
-  // }
-
-
-
-
-  // const strings = [`saved money: ${totalDiscount.toString()}`];
-
-  // const strings = ["salam", "bar", "to"];
-  // console.log([totalDiscount.toString()])
-
   return (
     <>
+      {/* conditional style */}
       <div className={shoppcartmenu ? `${Styles.shoppMenu} ${Styles.shoppMenuOpen}` : Styles.shoppMenu}>
         <button onClick={() => dispatch(shopCartMenu_AC(false))} className={Styles.closeShopCart}><VscClose /></button>
         <h4>ShoppCart</h4>
         <hr />
+        {/* conditional rendering  */}
         {
           !cart.length ?
             <div className={Styles.emptyShoppCard}>
@@ -64,7 +45,7 @@ const ShoppMenu = () => {
             </div>
             :
             <div className={Styles.fullShoppCard}>
-
+              {/* start table  */}
               <table className={`${Styles.table} table align-middle mt-3`}>
 
                 <thead >
@@ -110,7 +91,8 @@ const ShoppMenu = () => {
                   )}
                 </tbody>
               </table>
-
+              {/* end table  */}
+              {/* start clear CheckOut Total price buttons*/}
               <div className={Styles.clearCheckOutTotalContainer}>
                 <div className={Styles.prices}>
 
@@ -129,7 +111,6 @@ const ShoppMenu = () => {
                     <ITyped
                       className='ityped-cursor'
                       showCursor={false}
-                      // strings={strings}
                       strings={["Buy more..."]}
                       typeSpeed={50}
                       backSpeed={50}

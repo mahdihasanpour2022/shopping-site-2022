@@ -17,7 +17,6 @@ const Products = () => {
 
 
 
-  console.log(search)
   return (
     <>
       <div className="container-fluid p-0 text-center">

@@ -5,11 +5,9 @@ import Styles from "../assets/styles/components_styles/Blog.module.scss";
 import { shoretersentense } from "../helper_function/helper_functions";
 
 
-
 const Blog = ({ blogData, findBlog }) => {
 
-
-  // const {img_src,title,text,Tags,Categories,date } = blogData;
+  // blog data destructuring 
   const { id, img_src, date, title, text } = blogData;
   return (
     <>

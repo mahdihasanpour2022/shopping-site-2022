@@ -9,9 +9,9 @@ import Login from "./Login";
 import SideMenu from "./SideMenu";
 import ShoppMenu from "./ShoppMenu";
 // action creator login/signup 
-import { SignupForm_AC, LoginForm_AC, navbarMenu_AC ,logout_AC} from "../redux/login_signup/loginSignupActopnCreator";
+import { SignupForm_AC, LoginForm_AC, navbarMenu_AC, logout_AC } from "../redux/login_signup/loginSignupActopnCreator";
 import { shopCartMenu_AC } from "../redux/cart/cartAcionCreators";
-import {searchValue_AC} from "../redux/products/productsActionCreators";
+import { searchValue_AC } from "../redux/products/productsActionCreators";
 // scss 
 import "../assets/styles/components_styles/Navbar.scss";
 // icons 
@@ -23,11 +23,11 @@ const Navbar = () => {
 
   const dispatch = useDispatch()
   const { cart } = useSelector(state => state.cartState);
-  const { login, signup, Signupform ,Loginform,navbarmenu} = useSelector(state => state.loginSignupState);
+  const { login, signup, Signupform, Loginform, navbarmenu } = useSelector(state => state.loginSignupState);
   const { shoppcartmenu } = useSelector(state => state.cartState);
 
 
-  const [showSearch , setShowSearch]=useState(false)
+  const [showSearch, setShowSearch] = useState(false)
 
   const showLoginFormBtn = () => {
     dispatch(LoginForm_AC(true))
@@ -54,16 +54,16 @@ const Navbar = () => {
     dispatch(LoginForm_AC(false))
   }
 
-const searchInput=e=>{
-  dispatch(searchValue_AC(e.target.value))
-}
+  const searchInput = e => {
+    dispatch(searchValue_AC(e.target.value))
+  }
 
   return (
     <>
       <div className="container-fluid nav_container">
         <div className="row">
-          <nav className="nav" style={{height:showSearch?"6rem":"5rem"}}>
-
+          <nav className="nav" style={{ height: showSearch ? "6rem" : "5rem" }}>
+            {/* start left hand nav logo  */}
             <div className='col-5 left_nav'>
               <button onClick={() => shoNabbarBtn()} className='hamburgerMenu'><CgMenuLeft /></button>
               <div className='brand'>
@@ -73,13 +73,13 @@ const searchInput=e=>{
                 </Link>
               </div>
             </div>
-
+            {/* start right nav   */}
             <div className='col-7 right_nav'>
-              <FiSearch onClick={()=>setShowSearch(true)} style={{display:showSearch?"none":"block"}}/>
+              <FiSearch onClick={() => setShowSearch(true)} style={{ display: showSearch ? "none" : "block" }} />
               {login ?
                 <>
                   <Link to="/useraccount">My Account</Link>
-                  <button onClick={()=>dispatch(logout_AC())} className='logout'>logOut</button>
+                  <button onClick={() => dispatch(logout_AC())} className='logout'>logOut</button>
                 </>
                 :
                 <>
@@ -95,13 +95,13 @@ const searchInput=e=>{
             <Login />
             <SideMenu />
             <ShoppMenu />
-            <div className='inputContainer' style={{display:showSearch?"block":"none"}}>
-              <input onChange={e=>searchInput(e)} className=' searchInput' style={{display:showSearch?"block":"none"}} type="search" placeholder='search...' />
+            <div className='inputContainer' style={{ display: showSearch ? "block" : "none" }}>
+              <input onChange={e => searchInput(e)} className=' searchInput' style={{ display: showSearch ? "block" : "none" }} type="search" placeholder='search...' />
             </div>
           </nav>
         </div>
       </div >
-
+      {/* conditional rendering / if loginform and signupform and navbar is false so ... open shopcart  */}
       {!Loginform && !navbarmenu && !Signupform && !shoppcartmenu && <div className='shoppingCart_icon' onClick={() => showShoppingCartDiv()}>
         {cart.length ?
           <>

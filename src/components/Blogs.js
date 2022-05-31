@@ -17,7 +17,6 @@ import { blogs_list } from "../serivice_data/blogsList.js";
 import { Breadcrumb } from "react-bootstrap";
 
 
-
 const Blogs = () => {
 
 
@@ -68,19 +67,20 @@ const Blogs = () => {
       <div className="container mt-3">
         <div className="row">
           <div>
-            <Breadcrumb style={{fontSize:"15px"}}>
+            <Breadcrumb style={{ fontSize: "15px" }}>
               <Breadcrumb.Item href="/" >Home</Breadcrumb.Item>
               <Breadcrumb.Item active>Blogs</Breadcrumb.Item>
             </Breadcrumb>
           </div>
         </div>
       </div>
-      
+
       <div className="container">
         <div className="row">
           <div className="col-lg-8" >
-
+            {/* conditional rendering  */}
             {!!thisBlogs.length ?
+              // create blog detail component for each blog with map loop 
               thisBlogs.map(item => <BlogDetail key={item.id} setThisBlogs={setThisBlogs} id={item.id} blogDetailData={item} />)
               :
               !!someBlogs.length && someBlogs.map(item => <Blog key={item.id} findBlog={findBlog} id={item.id} blogData={item} />)
@@ -90,7 +90,7 @@ const Blogs = () => {
           <div className={`${Styles.rightBox} col-lg-4`}>
             <div className="container-fluid mt-5">
               <div className="row">
-
+                {/* search input  */}
                 <div className={`${Styles.searchBox} col-12`} >
                   <div className="input-group w-100">
                     <input type="text" className="form-control" placeholder="search..." />

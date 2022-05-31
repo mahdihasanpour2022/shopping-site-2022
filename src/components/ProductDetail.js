@@ -39,7 +39,6 @@ const ProductDetail = () => {
   const { id } = useParams();
 
 
-
   useEffect(() => {
 
     if (localStorage.hasOwnProperty("products")) {
@@ -50,7 +49,6 @@ const ProductDetail = () => {
       const categoryHas = allProducts.filter(item => item.Category === productDetailData.Category)
       const categoryHasExcludeThis = categoryHas.filter(item => item.id !== productDetailData.id)
       setAllInThisCategory(categoryHasExcludeThis);
-
     }
   }, [id])
 
@@ -93,11 +91,13 @@ const ProductDetail = () => {
           <div className="container p-0 mt-5">
 
             <div className="row m-0">
+              {/* start left hand Detail */}
               <div className="col-md-6">
                 <div className="leftDetail" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500" >
                   {imageCount().map(item => <img src={thisProduct[item]} alt={item} key={item} />)}
                 </div>
               </div>
+              {/* start right hand Detail */}
               <div className="col-md-6">
                 <div className="rightDetail">
 
@@ -114,13 +114,13 @@ const ProductDetail = () => {
                     />
                   </div>
 
-                  
+
                   {/* <span>{id}</span> */}
                   <p className='parphDetail'>{detail}</p>
                   <div className='hContainer'>
 
                     <h3><CountUp delay={0.5} duration={1} start={real_price} end={Discounted_price} />.00<FaEuroSign /></h3>
-                    
+
 
                     {/* <h3>{Discounted_price}.00<FaEuroSign /></h3> */}
                     <h3>{real_price}.<FaEuroSign /></h3>
@@ -171,7 +171,7 @@ const ProductDetail = () => {
                       </>
                     }
                   </div>
-                    <Link to="/">&laquo;&laquo; Go To Product</Link>
+                  <Link to="/">&laquo;&laquo; Go To Product</Link>
                 </div>
               </div>
             </div>
@@ -180,7 +180,7 @@ const ProductDetail = () => {
         <p>loading...</p>
       }
 
-
+      {/* start similar_product */}
       <hr className='similar_product' />
       <p className='similar_products'>You may also like …</p>
       <div className="container my-5">

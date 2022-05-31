@@ -43,6 +43,7 @@ const ContactUs = () => {
   const submitForm = e => {
     e.preventDefault();
 
+    // check that we have error or not 
     if (!!Object.keys(errors).length) {
       setTouched({
         name: true,
@@ -50,9 +51,11 @@ const ContactUs = () => {
         subject: true,
         message: true,
       })
+      // react toastify 
       notify("failed", "send message failed.you have errors");
       return false;
     } else {
+      // react toastify 
       notify("success", "message sent successfully");
       localStorage.setItem("userMessage", JSON.stringify(userMessage))
     }
@@ -74,12 +77,12 @@ const ContactUs = () => {
 
         </div>
       </div>
-      
+
       {/* Breadcrumb */}
       <div className="container mt-2">
         <div className="row">
           <div>
-            <Breadcrumb style={{fontSize:"15px"}}>
+            <Breadcrumb style={{ fontSize: "15px" }}>
               <Breadcrumb.Item href="/" >Home</Breadcrumb.Item>
               <Breadcrumb.Item active>Contactus</Breadcrumb.Item>
             </Breadcrumb>
@@ -89,7 +92,7 @@ const ContactUs = () => {
 
       <div className="container mt-3">
         <div className="row">
-
+          {/* start left form */}
           <div className={`${Styles.leftForm} col-md-8`}>
             {/* form  */}
             <form onSubmit={e => submitForm(e)} className={Styles.contactForm}>
@@ -130,6 +133,7 @@ const ContactUs = () => {
             </form>
           </div>
 
+          {/* start right data contect */}
           <div className={`${Styles.rightForm} col-md-4`}>
             <div>
               <p>Address:</p>

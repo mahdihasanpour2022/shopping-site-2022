@@ -11,29 +11,26 @@ import "../assets/styles/components_styles/Categories.scss";
 
 const Categories = () => {
 
-
-
   const dispatch = useDispatch()
   const { categories } = useSelector(state => state.productsState);
-
 
   useEffect(() => {
     dispatch(fetchProducts())
   }, [dispatch]);
 
-
   return (
     <>
       <div className="container-fluid p-0">
         <div className="row m-0">
+          {/* display all categories button */}
           <p className='categories_p'>Select Categories or
             <span onClick={() => dispatch(removeFilteredProduct())}>All</span>
           </p>
-
+          {/* filter category  */}
           <div className='Categories'>
             {!!categories.length && categories.map(item => <Category key={item} categoryName={item} />)}
           </div>
-          
+
         </div>
       </div>
     </>
