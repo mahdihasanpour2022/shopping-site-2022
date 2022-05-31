@@ -1,0 +1,15 @@
+@import "../common_styles/fonts";
+@import "../common_styles/variables";
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $black;
+  font-family: $OpenSans ,Arial, Helvetica, sans-serif !important;
+}
+p,h6,h5,h4,h3,h2,h1{
+  user-select: none  !important;
+}
+img{
+  -webkit-user-drag: none !important;
+}

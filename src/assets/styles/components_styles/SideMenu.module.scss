@@ -1,0 +1,112 @@
+@import "../common_styles/fonts";
+@import "../common_styles/variables";
+@import "../common_styles/mixins";
+
+
+
+.left_menu {
+  width: 70vw;
+  height: 100vh;
+  background-color: rgba(245, 245, 245, 0.5);
+  backdrop-filter: blur(12px);
+  padding: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-100%, 0);
+  transition: all 0.6s ease;
+
+  .brandTopMenu {
+    margin-bottom: 1rem;
+    @include display_flex(space-between, center);
+
+    .closeBtn {
+      background-color: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: rgb(140, 140, 140);
+
+    }
+
+    span {
+      @include reset_margin_padding;
+      font-size: 13px;
+      background: $gradient1;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: $LibraSans_Bold;
+    }
+
+    h5 {
+      @include reset_margin_padding;
+      position: relative;
+      top: -5px;
+      font-family: $LibraSans_Bold;
+    }
+  }
+
+  ul {
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      margin-bottom: 1rem !important;
+
+      a {
+        font-size: 1rem;
+        color: rgb(90, 90, 90) !important;
+        display: inline-block;
+        transform-origin: center;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          border-bottom: 1px solid #CD5164;
+          color: #CD5164 !important;
+          transform: scale(1.1) !important;
+        }
+      }
+      
+      .signoutBTN {
+        font-size: 1rem;
+        color: rgb(90, 90, 90) !important;
+        display: inline-block;
+        background-color: transparent;
+        border: none;
+        transform-origin:center ;
+        padding: 0;
+        transition: all 0.3s ease;
+        &:hover{
+          border-bottom: 1px solid #CD5164;
+          color: #CD5164 !important;
+          transform: scale(1.1) !important;
+        }
+      }
+    }
+  }
+  @media (max-width:399px) {
+    width: 90% ;
+  }
+  @media (min-width:400px) {
+    width: 50% ;
+  }
+  @media (min-width:576px) {
+    width: 35% ;
+  }
+
+  @media (min-width:768px) {
+    width: 30%;
+  }
+
+  @media (min-width:992px) {
+    width: 25%;
+  }
+
+  @media (min-width:1200px) {
+    width: 20%;
+  }
+}
+
+.open {
+  box-shadow: 5px 0px 10px 1px rgba(169, 169, 169, 0.4);
+  transform: translate(0%, 0);
+}

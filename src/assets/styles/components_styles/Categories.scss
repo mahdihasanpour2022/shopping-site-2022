@@ -1,0 +1,40 @@
+@import "../common_styles/variables";
+@import "../common_styles/mixins";
+@import "../common_styles/fonts";
+
+
+.Categories {
+  width: 100vw;
+  min-height: 230px;
+  padding: 0 30px;
+  display: flex;
+  @include display_flex(center, center);
+  flex-flow: row wrap;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit , minmax(200px,1fr))
+}
+
+.categories_p {
+  // color: $khaki;
+  color: $khaki;
+  margin: 0;
+  margin: 0.8rem 0 0.6rem!important;
+  text-align: center;
+  user-select: none;
+
+  span {
+    color: skyblue;
+    display: inline-block;
+    cursor: pointer;
+    border-radius:5px ;
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-left: 0.5rem;
+    &:hover{
+      outline: 1px solid skyblue;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@mixin title_font_1 {
+  font-size: 26px;
+  line-height: 42px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+@mixin title_font_2 {
+  font-size: 24px;
+  line-height: 38px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  @content;
+}
+
+@mixin title_font_3 {
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 900;
+}
+
+@mixin text_font_1 {
+  font-size: 1rem;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+@mixin text_font_2 {
+  font-size: 13px;
+  line-height: 26px;
+  font-weight: 500;
+}
+
+@mixin text_font_3 {
+  font-size: 11px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+@mixin display_flex($justify , $align) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  @content;
+}
+
+@mixin reset_margin_padding {
+  padding: 0;
+  margin: 0;
+}
+
+@mixin ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin btn_reset {
+  background-color: transparent;
+  border: none;
+  @content;
+}
+
+@mixin btn_on_hover($color , $background_color) {
+  color: $color ;
+  background-color: $background_color;
+  @content;
+}

@@ -1,0 +1,254 @@
+@import "../common_styles/fonts";
+@import "../common_styles/mixins";
+@import "../common_styles/variables";
+
+.leftDetail {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 100%;
+
+  img {
+    object-fit: cover;
+    margin: 0.5rem;
+    border-radius: 5px;
+    width: 140px;
+    // box-shadow: 5px 10px 10px 1px rgb(220, 220, 220);
+    transition: all 0.5s ease;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+
+    @media (min-width:768px) {
+      width: 210px;
+      justify-content: center;
+    }
+
+    // @media (min-width:992px) {
+    //   width: 270px;
+    //   justify-content: center;
+    // }
+    // @media (min-width:1400px) {
+    //   width: 300px;
+    // }
+  }
+
+  @media (min-width:768px) {
+    justify-content: center;
+  }
+}
+
+.rightDetail {
+  @include display_flex(baseline, flex-start) {
+    flex-direction: column;
+  }
+
+  // width: 100%;
+
+  h5 {
+    @include text_font_1;
+    font-family: $LibraSans_Bold;
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+  }
+
+  .parphDetail {
+    text-align: left;
+    color: $lightgray;
+    margin-bottom: 1.5rem;
+  }
+
+  .hContainer {
+    @include display_flex(flex-start, baseline) {}
+
+    h3:nth-child(1) {
+      font-weight: 900;
+    }
+
+    h3:nth-child(2) {
+      color: $lightgray;
+      text-decoration: line-through;
+      margin-left: 1rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  hr {
+    padding: 1px;
+    width: 90%;
+    color: $darkgray;
+  }
+
+  h6 {
+    @include text_font_1;
+  }
+
+  .pContainer {
+    @include display_flex(flex-start, center);
+
+    p {
+      @include display_flex(center, center);
+      @include text_font_2;
+      color: black;
+      font-weight: 600;
+      margin-right: 0.5rem;
+      // border: 1px solid $lightgray;
+      width: 40px;
+      height: 40px;
+
+      border-radius: 5px;
+      background: #ffffff;
+      box-shadow: 6px 6px 6px rgb(200, 200, 200), -6px -6px 6px rgb(245, 245, 245);
+
+    }
+  }
+
+  p>span {
+    color: $lightgray;
+    font-size: 1rem;
+  }
+
+  .category {
+    color: skyblue;
+    cursor: pointer;
+  }
+
+  .spanContainer {
+    @include display_flex(flex-start, center);
+
+    p {
+      @include reset_margin_padding;
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 500;
+      color: $darkgray;
+      display: inline-block;
+      text-indent: 0.3rem;
+    }
+  }
+
+  .shoppingButtons {
+    @include display_flex(flex-start, center);
+    width: 100%;
+
+    .changeProductCount {
+      border: 1px solid lightgray;
+      background-color: transparent;
+      vertical-align: middle;
+      width: 40px;
+      height: 40px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: $white;
+        background-color: $black;
+      }
+    }
+
+    .increaseCount {
+      border-radius: 5px 0 0 5px;
+    }
+
+    .decreaseCount {
+      border-radius: 0 5px 5px 0;
+    }
+
+    .ProductCount {
+      border: 1px solid lightgray;
+      display: inline-block;
+      text-align: center;
+      line-height: 40px;
+      width: 70px;
+      height: 40px;
+      vertical-align: middle;
+    }
+
+    .trashButton {
+      border: 1px solid $lightgray;
+      border-radius: 0 5px 5px 0;
+      background-color: transparent;
+      width: 40px;
+      height: 40px;
+      vertical-align: middle;
+
+      svg {
+        font-size: 20px;
+        color: rgb(49, 49, 49);
+      }
+    }
+
+    .addToCartButton {
+      border: none;
+      border-radius: 5px;
+      background-color: $primary;
+      color: $white;
+      padding: 0.5rem 0.8rem;
+    }
+
+
+  }
+
+  a {
+    margin: 0.5rem 0;
+    color: skyblue !important;
+  }
+}
+
+.similar_product {
+  // width: 95%;
+  margin: 3rem auto 0;
+  background-color: $khaki;
+  padding: 1px;
+}
+
+.similar_products {
+  padding: 0 1rem !important;
+  @include reset_margin_padding;
+  @include title_font_3;
+  color: $khaki;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  background-color: $white;
+}
+
+
+.itypedContainer {
+  // align-self: center;
+  height: 2rem;
+
+  .ityped-cursor {
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 1;
+    -webkit-animation: blink 0.3s infinite;
+    -moz-animation: blink 0.3s infinite;
+    animation: blink 0.3s infinite;
+    animation-direction: alternate;
+  }
+
+  // ityped animation
+  @keyframes blink {
+    100% {
+      opacity: 0.7;
+    }
+  }
+
+  @-webkit-keyframes blink {
+    100% {
+      opacity: 0.7;
+    }
+  }
+
+  @-moz-keyframes blink {
+    100% {
+      opacity: 0.7;
+    }
+  }
+}
+

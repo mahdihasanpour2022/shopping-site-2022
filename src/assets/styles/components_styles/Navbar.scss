@@ -1,0 +1,191 @@
+@import "../common_styles/variables";
+@import "../common_styles/mixins";
+@import "../common_styles/fonts";
+
+a {
+  text-decoration: none !important;
+  color: $black  !important;
+}
+
+.nav_container {
+  margin-top: 5rem !important;
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    background-color: $white;
+    border-bottom: 1px solid $lightgray;
+    width: 100vw;
+    // height: 5rem;
+    transition: height 0.3s ease;
+    @include display_flex(space-between, center);
+    padding: 0 1.5rem !important;
+
+    .left_nav {
+      @include display_flex(flex-start, center);
+
+      // border: 1px solid red;
+      .hamburgerMenu {
+        @include reset_margin_padding;
+        background-color: transparent;
+        border: none;
+      }
+
+      .brand {
+        margin: 0 1.5rem;
+
+        span {
+          @include reset_margin_padding;
+          font-size: 13px;
+          background: $gradient1;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          font-family: $LibraSans_Bold;
+        }
+
+        h5 {
+          @include reset_margin_padding;
+          position: relative;
+          top: -5px;
+          font-family: $LibraSans_Bold;
+        }
+      }
+
+      svg {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    .right_nav {
+      @include display_flex(flex-end, center);
+
+      svg {
+        font-size: 22px;
+        display: block;
+      }
+
+
+
+      a {
+        margin-left: 0.7rem;
+        // @include text_font_1;
+        white-space: nowrap;
+      }
+
+      .logout {
+        background-color: transparent;
+        border: none;
+        font-weight: 600;
+        margin-left: 0.7rem;
+      }
+
+      .openSignupBtn,
+      .openLoginBtn {
+        // color: red;
+        background-color: transparent;
+        border: none;
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        white-space: nowrap;
+
+        @media(min-width:992px) {
+          font-size: 1.1rem;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .inputContainer {
+      text-align: center;
+      // @include display_flex(center,center);
+      width: 100%;
+
+      // height: 2rem;
+      .searchInput {
+        border: 1px solid $ultra_lightgray;
+        height: 2.2rem;
+        background-color: $white1;
+        border-radius: 5px;
+        width: 70%;
+        display: inline-block;
+        margin: 0 auto;
+
+        &::placeholder {
+          color: $lightgray;
+          text-indent: 0.5rem;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+.shoppingCart_icon {
+  position: fixed;
+  top: 4.1rem;
+  right: 0;
+  z-index: 5;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 40px;
+  height: 80px;
+  background: $gradient1;
+  color: $lightgray;
+  @include display_flex(center, center) {
+    flex-direction: column;
+  };
+
+  svg {
+    font-size: 1.7rem;
+  }
+
+  span {
+    @include text_font_2;
+    font-weight: 600;
+  }
+
+  .letterContainer {
+    @include display_flex(center, center) {
+      flex-direction: column;
+    }
+
+    span {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+// media query 
+@media (max-width:300px) {
+
+  .shoppingCart_icon {
+    top: 11% ;
+  }
+}
+
+@media (min-width:768px) {
+  .nav {
+    height: 6.4rem;
+  }
+}
+
+// @media (min-width:1024px) {
+//   .right_nav {
+//     svg {
+//       display: none !important;
+//     }
+
+//     input {
+//       display: block !important;
+//     }
+
+//   }
+// }

@@ -1,0 +1,328 @@
+@import "../common_styles/fonts";
+@import "../common_styles/variables";
+@import "../common_styles/mixins";
+
+.shoppMenu {
+  width: 40vw ;
+  height: 100vh;
+  padding: 1.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(245, 245, 245, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: 3;
+  overflow-y: scroll;
+
+  transform: translate(200%, 0);
+  transition: all 0.5s ease;
+
+
+
+  /*scrollbar  in chroome */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $black;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $ultra_lightgray;
+  }
+
+  /*start scrollbar  in firefox */
+  .scrollbar {
+    scrollbar-color: $black $ultra_lightgray;
+  }
+
+
+
+  .closeShopCart {
+    @include btn_reset;
+    color: $darkgray;
+    font-size: 20px;
+  }
+
+  h4 {
+    color: $darkgray;
+    text-align: center;
+  }
+
+  .emptyShoppCard {
+    width: 100%;
+    height: 80%;
+
+    @include display_flex(center, center) {
+      flex-direction: column;
+    }
+
+    ;
+
+
+    p {
+      color: darkgray;
+      margin: 1rem 0;
+
+      span {
+        font-weight: 600;
+        display: inline-block;
+        position: relative;
+        top: -1px;
+        font-size: 22px;
+        color: $khaki;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .fullShoppCard {
+
+    .table {
+      vertical-align: middle;
+      text-align: center;
+
+      thead {
+        tr {
+          th {
+            font-weight: 500;
+
+          }
+        }
+      }
+
+      .tdImage {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+
+      tbody {
+        tr {
+          td {
+            .actionButtons {
+              .changeOrderCount {
+                color: $white;
+                background-color: $black;
+                vertical-align: middle;
+                width: 30px;
+                height: 30px;
+                transition: all 0.2s ease;
+                border: none;
+                // @include display_flex(center, center){
+                //   flex-direction: column;
+                // };
+
+                &:hover {
+                  color: $black;
+                  background-color: $white;
+                  border: 1px solid $darkgray;
+                }
+              }
+
+              .increaseOrder {
+                border-radius: 5px 0 0 5px;
+              }
+
+              .decreaseOrder {
+                border-radius: 0 5px 5px 0;
+              }
+
+              .trashOrder {
+                border-radius: 0 5px 5px 0;
+                background-color: $black;
+                width: 30px;
+                height: 30px;
+                text-align: center;
+                vertical-align: middle;
+                border: none;
+
+                svg {
+                  font-size: 18px;
+                  color: $white;
+                  position: relative;
+                  top: -2px;
+                  left: -2px;
+                }
+
+                &:hover {
+                  color: $black;
+                  background-color: $white;
+                  border: 1px solid $darkgray;
+
+                  svg {
+                    top: -2px;
+                    left: -1px;
+                    color: $black  !important;
+                  }
+                }
+              }
+            }
+
+            .ueroIcon {
+              position: relative;
+              display: inline-block;
+              top: -2px;
+            }
+          }
+        }
+      }
+
+    }
+
+    .clearCheckOutTotalContainer {
+
+      // @include display_flex(space-between, center);
+      @include display_flex(space-between, center) {
+        flex-direction: column
+      }
+
+      ;
+
+      .prices {
+        p:nth-child(1) {
+          padding: 0;
+          margin: 0;
+
+          span {
+            font-weight: 600;
+            display: inline-block;
+            text-indent: 0.2rem;
+
+            .ueroIcon {
+              position: relative;
+              display: inline-block;
+              top: -2px;
+            }
+          }
+        }
+
+        p:nth-child(2) {
+          font-size: 12px;
+
+          // visibility: hidden;
+          // display: none;
+          span {
+            display: inline-block;
+            text-indent: 0.2rem;
+          }
+        }
+      }
+
+      .clearCard {
+        border: none;
+        background-color: $deadRed;
+        color: $white;
+        padding: 0.3rem 0.7rem;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        width: 100%;
+      }
+
+      .checkOutCard {
+        border: none;
+        margin-top: 0.3rem;
+        background-color: $darkgray;
+        color: $white;
+        padding: 0.3rem 0.7rem;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+// close open shoppcart
+.shoppMenuOpen {
+  transform: translate(0%, 0);
+  box-shadow: 5px 0px 20px 5px rgba(169, 169, 169, 0.4);
+}
+
+// media queries 
+@media (max-width :298px) {
+  .actionButtons {
+    .increaseOrder,
+    .decreaseOrder {
+      border-radius: 5px !important;
+      margin-bottom: 0.2rem;
+    }
+    .trashOrder {
+      border-radius: 5px !important;
+      svg{
+        top: -2px !important;
+        left: 0px !important;
+      }
+    }
+}
+}
+
+
+@media (max-width :576px){
+  .shoppMenu{
+    width: 98vw ;
+    padding: 0.2rem;
+  }
+  
+}
+@media (min-width :576px){
+  .shoppMenu{
+    width: 65vw ;
+    padding: 0.2rem;
+  }
+}
+@media (min-width :768px) {
+  .shoppMenuOpen {
+    width: 45vw;
+  }
+}
+
+@media (min-width :992px) {
+  .shoppMenuOpen {
+    width: 35vw;
+  }
+}
+
+@media (min-width :1200px) {
+  .shoppMenuOpen {
+    width: 30vw;
+  }
+}
+
+// ityped 
+.itypedContainer {
+
+  // align-self: center;
+  // height: 1rem;
+  .ityped-cursor {
+    // font-size: 0.5rem;
+    // font-weight: 600;
+    opacity: 0.1;
+    -webkit-animation: blink 0.3s infinite;
+    -moz-animation: blink 0.3s infinite;
+    animation: blink 0.3s infinite;
+    animation-direction: alternate;
+  }
+
+  // ityped animation
+  @keyframes blink {
+    100% {
+      opacity: 0.4;
+    }
+  }
+
+  @-webkit-keyframes blink {
+    100% {
+      opacity: 0.4;
+    }
+  }
+
+  @-moz-keyframes blink {
+    100% {
+      opacity: 0.4;
+    }
+  }
+}
