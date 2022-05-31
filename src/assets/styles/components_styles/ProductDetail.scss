@@ -13,7 +13,6 @@
     margin: 0.5rem;
     border-radius: 5px;
     width: 140px;
-    // box-shadow: 5px 10px 10px 1px rgb(220, 220, 220);
     transition: all 0.5s ease;
 
     &:hover {
@@ -25,13 +24,6 @@
       justify-content: center;
     }
 
-    // @media (min-width:992px) {
-    //   width: 270px;
-    //   justify-content: center;
-    // }
-    // @media (min-width:1400px) {
-    //   width: 300px;
-    // }
   }
 
   @media (min-width:768px) {
@@ -219,7 +211,6 @@
 
 
 .itypedContainer {
-  // align-self: center;
   height: 2rem;
 
   .ityped-cursor {

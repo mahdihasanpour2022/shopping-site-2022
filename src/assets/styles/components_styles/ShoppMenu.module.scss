@@ -19,7 +19,6 @@
 
 
 
-  /*scrollbar  in chroome */
   &::-webkit-scrollbar {
     width: 6px;
   }
@@ -31,13 +30,9 @@
   &::-webkit-scrollbar-track {
     background: $ultra_lightgray;
   }
-
-  /*start scrollbar  in firefox */
   .scrollbar {
     scrollbar-color: $black $ultra_lightgray;
   }
-
-
 
   .closeShopCart {
     @include btn_reset;
@@ -87,7 +82,6 @@
         tr {
           th {
             font-weight: 500;
-
           }
         }
       }
@@ -111,10 +105,6 @@
                 height: 30px;
                 transition: all 0.2s ease;
                 border: none;
-                // @include display_flex(center, center){
-                //   flex-direction: column;
-                // };
-
                 &:hover {
                   color: $black;
                   background-color: $white;
@@ -174,7 +164,6 @@
 
     .clearCheckOutTotalContainer {
 
-      // @include display_flex(space-between, center);
       @include display_flex(space-between, center) {
         flex-direction: column
       }
@@ -201,9 +190,6 @@
 
         p:nth-child(2) {
           font-size: 12px;
-
-          // visibility: hidden;
-          // display: none;
           span {
             display: inline-block;
             text-indent: 0.2rem;
@@ -295,11 +281,7 @@
 // ityped 
 .itypedContainer {
 
-  // align-self: center;
-  // height: 1rem;
   .ityped-cursor {
-    // font-size: 0.5rem;
-    // font-weight: 600;
     opacity: 0.1;
     -webkit-animation: blink 0.3s infinite;
     -moz-animation: blink 0.3s infinite;

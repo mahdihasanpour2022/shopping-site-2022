@@ -12,30 +12,23 @@
     overflow: hidden;
     
     width: fit-content;
-    // width: 90px;
     height: 170px;
     padding: 0;
     
     img {
       width: 90px;
-      // width: 100%;
-      // height: 100%;
       object-fit: cover;
       transform: scale(1.05);
       transform-origin: center bottom;
       transition: all 0.3s ease;
-      
     }
-
     .card-body {
       @include reset_margin_padding;
-
       h6 {
         font-weight: 600;
         font-size: 0.9rem;
         margin: 0.2rem 0;
       }
-      
       p {
         @include reset_margin_padding;
         color: $lightgray;
@@ -50,7 +43,7 @@
     }
   }
 }
-
+// media queries 
 @media (min-width:900px) {
   .card {
     // width: 9.7vw;
